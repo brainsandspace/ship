@@ -9,7 +9,7 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   body.fontLoaded {
