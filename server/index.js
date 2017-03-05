@@ -12,9 +12,9 @@ const app = express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-app.post('/webhook', (req, res, next) => {
+app.use('/webhook', (req, res, next) => {
   console.log(req.originalUrl);
-  console.log(req.accepted.method);
+  console.log(req.method);
   console.log(JSON.stringify(req.body));
 });
 
