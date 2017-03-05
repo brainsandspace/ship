@@ -1,0 +1,10 @@
+/* istanbul ignore next */'use strict'; // import React from 'react';
+// import { shallow } from 'enzyme';
+
+// import { Post } from '../index';
+
+describe('<Post />', function () {
+  it('Expect to have unit tests specified', function () {
+    expect(true).toEqual(false);
+  });
+});

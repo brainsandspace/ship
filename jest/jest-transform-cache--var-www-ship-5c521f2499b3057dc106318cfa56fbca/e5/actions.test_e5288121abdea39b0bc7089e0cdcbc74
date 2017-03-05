@@ -1,0 +1,18 @@
+/* istanbul ignore next */'use strict';
+var /* istanbul ignore next */_actions = require('../actions');
+
+
+var /* istanbul ignore next */_constants = require('../constants');
+
+
+
+describe('Post actions', function () {
+  describe('Default Action', function () {
+    it('has a type of DEFAULT_ACTION', function () {
+      var expected = {
+        type: /* istanbul ignore next */_constants.DEFAULT_ACTION };
+
+      expect( /* istanbul ignore next */(0, _actions.defaultAction)()).toEqual(expected);
+    });
+  });
+});

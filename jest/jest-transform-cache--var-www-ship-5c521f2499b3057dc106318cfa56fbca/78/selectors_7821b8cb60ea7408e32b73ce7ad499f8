@@ -1,0 +1,24 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.selectPostDomain = undefined;var /* istanbul ignore next */_reselect = require('reselect');
+
+/**
+                                                                                                                                                                                                          * Direct selector to the post state domain
+                                                                                                                                                                                                          */
+var selectPostDomain = function selectPostDomain() /* istanbul ignore next */{return function (state) /* istanbul ignore next */{return state.get('post');};};
+
+/**
+                                                                                                                                                                * Other specific selectors
+                                                                                                                                                                */
+
+
+/**
+                                                                                                                                                                    * Default selector used by Post
+                                                                                                                                                                    */
+
+var makeSelectPost = function makeSelectPost() /* istanbul ignore next */{return (/* istanbul ignore next */(0, _reselect.createSelector)(
+    selectPostDomain(),
+    function (substate) /* istanbul ignore next */{return substate.toJS();}));}; /* istanbul ignore next */exports.default =
+
+
+makeSelectPost; /* istanbul ignore next */exports.
+
+selectPostDomain = selectPostDomain;

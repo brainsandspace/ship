@@ -1,0 +1,10 @@
+/* istanbul ignore next */'use strict'; // import { fromJS } from 'immutable';
+// import { makeSelectIdeasDomain } from '../selectors';
+
+// const selector = makeSelectIdeasDomain();
+
+describe('makeSelectIdeasDomain', function () {
+  it('Expect to have unit tests specified', function () {
+    expect(true).toEqual(false);
+  });
+});

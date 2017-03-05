@@ -1,0 +1,24 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.selectIdeasDomain = undefined;var /* istanbul ignore next */_reselect = require('reselect');
+
+/**
+                                                                                                                                                                                                           * Direct selector to the ideas state domain
+                                                                                                                                                                                                           */
+var selectIdeasDomain = function selectIdeasDomain() /* istanbul ignore next */{return function (state) /* istanbul ignore next */{return state.get('ideas');};};
+
+/**
+                                                                                                                                                                   * Other specific selectors
+                                                                                                                                                                   */
+
+
+/**
+                                                                                                                                                                       * Default selector used by Ideas
+                                                                                                                                                                       */
+
+var makeSelectIdeas = function makeSelectIdeas() /* istanbul ignore next */{return (/* istanbul ignore next */(0, _reselect.createSelector)(
+    selectIdeasDomain(),
+    function (substate) /* istanbul ignore next */{return substate.toJS();}));}; /* istanbul ignore next */exports.default =
+
+
+makeSelectIdeas; /* istanbul ignore next */exports.
+
+selectIdeasDomain = selectIdeasDomain;
