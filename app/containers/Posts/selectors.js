@@ -8,7 +8,10 @@ const selectPostsDomain = () => (state) => state.get('posts');
 /**
  * Other specific selectors
  */
-
+export const makeSelectCurrentPost = () => createSelector(
+  selectPostsDomain(),
+  (substate) => substate.get('currentPost').toJS()
+);
 
 /**
  * Default selector used by Posts

@@ -10,14 +10,17 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router';
+
 import ComingSoon from 'components/ComingSoon';
-import messages from './messages';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <ComingSoon />
+      <div>
+        <ComingSoon />
+        <Link to="/posts">Posts</Link>
+      </div>
     );
   }
 }

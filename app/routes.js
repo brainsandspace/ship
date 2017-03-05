@@ -3,9 +3,15 @@
 // See http://blog.mxstbr.com/2016/01/react-apps-with-pages for more information
 // about the code splitting business
 import { getAsyncInjectors } from 'utils/asyncInjectors';
+import NotFoundPage from 'containers/NotFoundPage';
 
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
+};
+
+const errorLoadingPost = (err, cb) => {
+  console.error('Error loading post', err);
+  loadModule(cb(null, NotFoundPage));
 };
 
 const loadModule = (cb) => (componentModule) => {
@@ -34,7 +40,7 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
-      path: 'posts',
+      path: '/posts',
       name: 'posts',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
@@ -53,6 +59,30 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+      childRoutes: [
+        {
+          // dynamic routes for individual posts
+          // Doing this as a child route has the benefit of keeping the Posts layout
+          path: '/posts/:slug',
+          name: 'post',
+          getComponent(nextState, cb) {
+            console.log('nextState', nextState, cb);
+            // TODO figure out How well I am actually using code splitting.
+            const importModules = Promise.all([
+              import(`containers/Posts/instances/${nextState.params.slug}.js`),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([component]) => {
+              renderRoute(component);
+            });
+            
+            // TODO figure out how to throw in a 404 here if teh post does not exist
+            importModules.catch((errorLoading));
+          }
+        }
+      ]
     }, {
       path: '*',
       name: 'notfound',
