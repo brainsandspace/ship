@@ -21,15 +21,59 @@ const Wrapper = styled.div`
     color: darkcyan;
   }
   ul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
     margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+
+    transition: 1s;
   }
+
+
+   ul.folded {
+    transition: 1s;
+    grid-row-gap: 20px;
+  }
+  ul.unfolded {
+    transition: 1s;
+    grid-row-gap: 200px;
+  }
+
+
 `;
 
 const LI = styled.li`
-cursor: pointer;
 color: steelblue;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-column-gap: 5px;
 
-&:hover {
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+h3 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p.date {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: scaleX(-1);
+  span {
+  } 
+}
+
+h3:hover {
+  cursor: pointer;
   font-weight: bold;
 }
 `;
@@ -41,13 +85,28 @@ export class Posts extends React.Component { // eslint-disable-line react/prefer
         <Helmet
           title="Posts"
           meta={[
-            { name: 'description', content: 'Description of Posts' },
+            { name: 'description', content: 'All the posts of posty type type post' },
           ]}
         />
-        <ul>
+        <ul className={this.props.children ? 'folded' : 'unfolded'}>
           {
-            Object.entries(postInstances).map(([slug, filename]) => (
-              <LI key={slug} onClick={() => { this.props.onClickPost(filename); }} >{slug}</LI>
+            Array.from(postInstances).reverse().map(([slug, { filename, dates }]) => (
+              <LI
+                key={slug}
+              >
+                {
+                  dates ?
+                    <p className="date">
+                      {dates.map((d) => <span key={`${filename}-${d}`}>{d.toDateString()}</span>)}
+                    </p> :
+                    null
+                }
+                <div>
+                  <h3 onClick={() => { this.props.onClickPost(filename); }}>
+                    {slug}
+                  </h3>
+                </div>
+              </LI>
             ))
           }
         </ul>

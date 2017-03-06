@@ -66,7 +66,6 @@ export default function createRoutes(store) {
           path: '/posts/:slug',
           name: 'post',
           getComponent(nextState, cb) {
-            console.log('nextState', nextState, cb);
             // TODO figure out How well I am actually using code splitting.
             const importModules = Promise.all([
               import(`containers/Posts/instances/${nextState.params.slug}.js`),
@@ -83,6 +82,14 @@ export default function createRoutes(store) {
           }
         }
       ]
+    }, {
+      path: '/things-to-check-out',
+      name: 'thingsToCheckOut',
+      getComponent(location, cb) {
+        import('containers/ThingsToCheckOut')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
     }, {
       path: '*',
       name: 'notfound',

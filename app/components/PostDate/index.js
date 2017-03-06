@@ -8,7 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.p`
-font-style: italic;
+// font-style: italic;
 color: #bbb;
 margin: 0;
 text-align: right;
@@ -16,7 +16,7 @@ text-align: right;
 
 function PostDate(props) {
   return (
-    <Wrapper>
+    <Wrapper className="date">
       {props.children}
     </Wrapper>
   );
