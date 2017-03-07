@@ -18,7 +18,12 @@ height: 100vh;
 text-align: center;
 
 h1 {
-  font-size: 5em;
+  font-size: 5rem;
+
+  span {
+    vertical-align: 20%;
+    font-size: 2.5rem;
+  }
 }
 `
 ;
@@ -27,7 +32,7 @@ class ComingSoon extends React.Component { // eslint-disable-line react/prefer-s
   render() {
     return (
       <Wrapper>
-        <h1>BRAINS AND SPACE</h1>
+        <h1>BRAINS <span>AND</span> SPACE</h1>
         <h2>coming soon</h2>
       </Wrapper>
     );
