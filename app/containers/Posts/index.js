@@ -31,7 +31,6 @@ const Wrapper = styled.div`
     transition: 1s;
   }
 
-
    ul.folded {
     transition: 1s;
     grid-row-gap: 20px;
@@ -40,8 +39,6 @@ const Wrapper = styled.div`
     transition: 1s;
     grid-row-gap: 200px;
   }
-
-
 `;
 
 const LI = styled.li`
@@ -90,20 +87,20 @@ export class Posts extends React.Component { // eslint-disable-line react/prefer
         />
         <ul className={this.props.children ? 'folded' : 'unfolded'}>
           {
-            Array.from(postInstances).reverse().map(([slug, { filename, dates }]) => (
+            Array.from(postInstances).reverse().map(([title, { slug, dates }]) => (
               <LI
-                key={slug}
+                key={title}
               >
                 {
                   dates ?
                     <p className="date">
-                      {dates.map((d) => <span key={`${filename}-${d}`}>{d.toDateString()}</span>)}
+                      {dates.map((d) => <span key={`${slug}-${d}`}>{d.toDateString()}</span>)}
                     </p> :
                     null
                 }
                 <div>
-                  <h3 onClick={() => { this.props.onClickPost(filename); }}>
-                    {slug}
+                  <h3 onClick={() => { this.props.onClickPost(slug, dates[0]); }}>
+                    {title}
                   </h3>
                 </div>
               </LI>
@@ -129,7 +126,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClickPost: (filename) => dispatch(getPost(dispatch, filename)), //dispatch(push(`/posts/${filename}`)),
+    onClickPost: (slug, date) => dispatch(getPost(dispatch, slug, date)), //dispatch(push(`/posts/${filename}`)),
   };
 }
 

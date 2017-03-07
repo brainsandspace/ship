@@ -67,8 +67,10 @@ export default function createRoutes(store) {
           name: 'post',
           getComponent(nextState, cb) {
             // TODO figure out How well I am actually using code splitting.
+            console.log(nextState)
+            
             const importModules = Promise.all([
-              import(`containers/Posts/instances/${nextState.params.slug}.js`),
+              import(`containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}.js`),
             ]);
 
             const renderRoute = loadModule(cb);

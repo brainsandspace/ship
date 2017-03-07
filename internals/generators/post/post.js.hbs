@@ -1,0 +1,69 @@
+/*
+ *
+ * {{ title }}
+ *
+ */
+
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
+
+{{#if classicPost}}
+import Post from 'components/Post';
+import PostP from 'components/PostP';
+import PostHeading from 'components/PostHeading';
+import PostTitle from 'components/PostTitle';
+import PostDate from 'components/PostDate';
+{{/if}}
+
+import postInstances from '../postInstances';
+
+export class {{ properCase title }} extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    return (
+
+      {{#if classicPost}}
+      <Post>
+      {{else}}
+      <div>
+      {{/if}}
+
+        <Helmet
+          title="{{ titleCase title }}"
+          meta={{curly true}}[
+            {{curly true}} name: 'description', content: 'Description of {{ title }}' {{curly}},
+          ]{{curly}}
+        />
+
+        {{#if classicPost}}
+        <PostHeading>
+          <PostTitle>{{ title }}</PostTitle>
+          <PostDate>{{curly true}}postInstances.get('{{ title }}').dates.map((date) => <span key={date}>{{curly true}}date.toDateString(){{curly}}</span>){{curly}}</PostDate>
+        </PostHeading>
+
+        <PostP>
+          Start writing in here.
+        </PostP>
+        {{/if}}
+
+      {{#if classicPost}}
+      </Post>
+      {{else}}
+      </div>
+      {{/if}}
+    );
+  }
+}
+
+{{ properCase title }}.propTypes = {
+
+};
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)({{ properCase title }});

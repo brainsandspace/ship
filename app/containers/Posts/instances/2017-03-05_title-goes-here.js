@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Post from 'components/Post';
-import P from 'components/P';
+import PostP from 'components/PostP';
 import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
@@ -12,16 +12,16 @@ class TitleGoesHere extends React.Component {
     return (
       <Post>
         <PostHeading>
-          <PostTitle>Playing with CSS Grid</PostTitle>
+          <PostTitle>The Post Title Goes Here</PostTitle>
           <PostDate> 2/5/17</PostDate>
         </PostHeading>
-        <P>
-          There's nothing in here actually yet. Especially not a grid.
-            </P>
-        <P>
+        <PostP>
+          Gosh darn I need ot sit down and actually figure out how it is I want to organize posts. I need to set up dynamic routing. It would probably be nice to have things set up so I can just run `npm run generate post {'{posttitle}'}` and boom new post with everything set up. Eventually a gui might be nice.
+            </PostP>
+        <PostP>
           I really need to decide whether <b>vim</b> is doing me good. I do like that it has made me more comfortable editing files in the terminal, which is useful when working on remote machines. The downside has been not necessarily with regards to <b>vim</b>, but rather the vim extension for <b>VS Code</b>. There are certain functionalities that it takes away from me. For instance, CTRL+D ought to highlight the next instance of the currently highlighted word, instead it looks like it decrements the indentation. Maybe that is actually a vim command? It is quite possible I just mostly need to learn more vim commands. THe problem is that vim commands are not implemented perfectly in the extension either. Like global find replace with confirmation. <code>:%s/foo/bar/gc</code> By the way, this is regarding the extension <a href="https://github.com/VSCodeVim/Vim">Vim v0.6.2</a>. I should look at the codebase and see if it might be worthwhile to try to make some PRs. I should do this.
               I should should should . I should do that.
-            </P>
+            </PostP>
       </Post>
     );
   }

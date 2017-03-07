@@ -5,6 +5,11 @@ const fs = require('fs');
 const path = require('path');
 const componentExists = require('../utils/componentExists');
 
+function trimTemplateFile(template) {
+  // Loads the template file and trims the whitespace and then returns the content as a string.
+  return fs.readFileSync(path.join(__dirname, `./${template}`), 'utf8').replace(/\s*$/, '');
+}
+
 function reducerExists(comp) {
   try {
     fs.accessSync(path.join(__dirname, `../../../app/containers/${comp}/reducer.js`), fs.F_OK);
@@ -23,10 +28,6 @@ function sagasExists(comp) {
   }
 }
 
-function trimTemplateFile(template) {
-  // Loads the template file and trims the whitespace and then returns the content as a string.
-  return fs.readFileSync(path.join(__dirname, `./${template}`), 'utf8').replace(/\s*$/, '');
-}
 
 module.exports = {
   description: 'Add a route',

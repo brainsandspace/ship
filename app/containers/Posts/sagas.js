@@ -5,10 +5,16 @@ import { LOAD_POST } from './constants';
 // Individual exports for testing
 export function* defaultSaga() {
   // See example in containers/HomePage/sagas.js
-  const { dispatch, filename } = yield take(LOAD_POST);
+  const { dispatch, slug, date } = yield take(LOAD_POST);
+  const datePrefix = date.toISOString().match(/(.+)T/)[1];
 
   // TODO this is probably bad using dispatch in here like this
-  dispatch(push(`/posts/${filename}`));
+  dispatch(push({
+    pathname: `/posts/${slug}`,
+
+    // Kinda hacky way to pasas this along to the routes.js file
+    state: datePrefix,
+  }));
 }
 
 // All sagas to be loaded
