@@ -11,7 +11,7 @@ var /* istanbul ignore next */_constants = require('./constants');
 
 var /* istanbul ignore next */_constants2 = require('../App/constants');
 
-// eslint-disable-line
+
 
 var initialState = /* istanbul ignore next */(++cov_1gq11ifyqk.s[0], /* istanbul ignore next */(0, _immutable.fromJS)({
   locale: /* istanbul ignore next */_constants2.DEFAULT_LOCALE }));

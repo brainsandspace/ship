@@ -4,18 +4,18 @@
  *
  */
 
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-import { createStructuredSelector } from 'reselect';
-import makeSelectPosts from './selectors';
-import { makeSelectCurrentPost } from './selectors';
-import { push } from 'react-router-redux';
+import React, { PropTypes } from "react";
+import { connect } from "react-redux";
+import Helmet from "react-helmet";
+import { createStructuredSelector } from "reselect";
+import makeSelectPosts from "./selectors";
+import { makeSelectCurrentPost } from "./selectors";
+import { push } from "react-router-redux";
 
-import { getPost } from './actions';
-import postInstances from './postInstances';
+import { getPost } from "./actions";
+import postInstances from "./postInstances";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 const Wrapper = styled.div`
   code {
     color: darkcyan;
@@ -75,37 +75,43 @@ h3:hover {
 }
 `;
 
-export class Posts extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class Posts extends React.Component {
   render() {
     return (
       <Wrapper>
         <Helmet
           title="Posts"
           meta={[
-            { name: 'description', content: 'All the posts of posty type type post' },
+            {
+              name: "description",
+              content: "All the posts of posty type type post"
+            }
           ]}
         />
-        <ul className={this.props.children ? 'folded' : 'unfolded'}>
-          {
-            Array.from(postInstances).reverse().map(([title, { slug, dates }]) => (
-              <LI
-                key={title}
-              >
-                {
-                  dates ?
-                    <p className="date">
-                      {dates.map((d) => <span key={`${slug}-${d}`}>{d.toDateString()}</span>)}
-                    </p> :
-                    null
-                }
-                <div>
-                  <h3 onClick={() => { this.props.onClickPost(slug, dates[0]); }}>
-                    {title}
-                  </h3>
-                </div>
-              </LI>
-            ))
-          }
+        <ul className={this.props.children ? "folded" : "unfolded"}>
+          {Array.from(postInstances).reverse().map(([
+            title,
+            { slug, dates }
+          ]) => (
+            <LI key={title}>
+              {dates
+                ? <p className="date">
+                    {dates.map(d => (
+                      <span key={`${slug}-${d}`}>{d.toDateString()}</span>
+                    ))}
+                  </p>
+                : null}
+              <div>
+                <h3
+                  onClick={() => {
+                    this.props.onClickPost(slug, dates[0]);
+                  }}
+                >
+                  {title}
+                </h3>
+              </div>
+            </LI>
+          ))}
         </ul>
         {this.props.children}
       </Wrapper>
@@ -115,18 +121,18 @@ export class Posts extends React.Component { // eslint-disable-line react/prefer
 
 Posts.propTypes = {
   onClickPost: PropTypes.func.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node
   // dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   // Posts: makeSelectPosts(),
-  currentPost: makeSelectCurrentPost,
+  currentPost: makeSelectCurrentPost
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClickPost: (slug, date) => dispatch(getPost(dispatch, slug, date)), //dispatch(push(`/posts/${filename}`)),
+    onClickPost: (slug, date) => dispatch(getPost(dispatch, slug, date)) //dispatch(push(`/posts/${filename}`)),
   };
 }
 

@@ -24,13 +24,13 @@ configureStore;var /* istanbul ignore next */_redux = require('redux');var /* is
 
 
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
-  /* eslint-disable no-underscore-dangle */
+  
   var composeEnhancers = /* istanbul ignore next */(++cov_234txyi8v2.s[3],
   /* istanbul ignore next */(++cov_234txyi8v2.b[2][0], process.env.NODE_ENV !== 'production') && /* istanbul ignore next */(++cov_234txyi8v2.b[2][1],
   /* istanbul ignore next */(typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object') && /* istanbul ignore next */(++cov_234txyi8v2.b[2][2],
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? /* istanbul ignore next */(++cov_234txyi8v2.b[1][0],
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) : /* istanbul ignore next */(++cov_234txyi8v2.b[1][1], _redux.compose));
-  /* eslint-enable */
+  
 
   var store = /* istanbul ignore next */(++cov_234txyi8v2.s[4], /* istanbul ignore next */(0, _redux.createStore)(
   /* istanbul ignore next */(0, _reducers2.default)(),

@@ -18,7 +18,7 @@ h1 {
 }
 `;
 
-export class ThingsToCheckOut extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class ThingsToCheckOut extends React.PureComponent { 
   render() {
     return (
       <Wrapper>

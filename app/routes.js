@@ -6,7 +6,7 @@ import { getAsyncInjectors } from 'utils/asyncInjectors';
 import NotFoundPage from 'containers/NotFoundPage';
 
 const errorLoading = (err) => {
-  console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
+  console.error('Dynamic page loading failed', err); 
 };
 
 const errorLoadingPost = (err, cb) => {
@@ -20,7 +20,7 @@ const loadModule = (cb) => (componentModule) => {
 
 export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
-  const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
+  const { injectReducer, injectSagas } = getAsyncInjectors(store); 
 
   return [
     {
