@@ -18,4 +18,9 @@ postInstances.set('Playing With CSS Grid', {
   dates: [new Date(2017, 2, 5)],
 });
 
+postInstances.set('Random Thoughts', {
+  filename: 'random-thoughts',
+  dates: [new Date(2017, 2, 6, 1, 56)],
+});
+
 export default postInstances;
