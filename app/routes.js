@@ -6,7 +6,7 @@ import { getAsyncInjectors } from 'utils/asyncInjectors';
 import NotFoundPage from 'containers/NotFoundPage';
 
 const errorLoading = (err) => {
-  console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
+  console.error('Dynamic page loading failed', err); 
 };
 
 const errorLoadingPost = (err, cb) => {
@@ -20,7 +20,7 @@ const loadModule = (cb) => (componentModule) => {
 
 export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
-  const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
+  const { injectReducer, injectSagas } = getAsyncInjectors(store); 
 
   return [
     {
@@ -67,8 +67,10 @@ export default function createRoutes(store) {
           name: 'post',
           getComponent(nextState, cb) {
             // TODO figure out How well I am actually using code splitting.
+            console.log(nextState)
+            
             const importModules = Promise.all([
-              import(`containers/Posts/instances/${nextState.params.slug}.js`),
+              import(`containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}.js`),
             ]);
 
             const renderRoute = loadModule(cb);
@@ -89,6 +91,26 @@ export default function createRoutes(store) {
         import('containers/ThingsToCheckOut')
           .then(loadModule(cb))
           .catch(errorLoading);
+      },
+    }, {
+      path: 'david',
+      name: 'david',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/David/reducer'),
+          import('containers/David/sagas'),
+          import('containers/David'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('david', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     }, {
       path: '*',

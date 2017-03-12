@@ -12,10 +12,11 @@ export function defaultAction() {
   };
 }
 
-export function getPost(dispatch, filename) {
+export function getPost(dispatch, slug, date) {
   return {
     type: LOAD_POST,
     dispatch,
-    filename
+    slug,
+    date,
   };
 }

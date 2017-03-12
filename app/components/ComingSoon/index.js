@@ -1,13 +1,12 @@
-/* eslint-disable linebreak-style*/
+
 /**
 *
 * ComingSoon
 *
 */
 
-
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
 display: flex;
@@ -18,24 +17,26 @@ height: 100vh;
 text-align: center;
 
 h1 {
-  font-size: 5em;
-}
-`
-;
+  font-size: 5rem;
 
-class ComingSoon extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  span {
+    vertical-align: 20%;
+    font-size: 2.5rem;
+  }
+}
+`;
+
+class ComingSoon extends React.Component {
   render() {
     return (
       <Wrapper>
-        <h1>BRAINS AND SPACE</h1>
+        <h1>BRAINS <span>AND</span> SPACE</h1>
         <h2>coming soon</h2>
       </Wrapper>
     );
   }
 }
 
-ComingSoon.propTypes = {
-
-};
+ComingSoon.propTypes = {};
 
 export default ComingSoon;

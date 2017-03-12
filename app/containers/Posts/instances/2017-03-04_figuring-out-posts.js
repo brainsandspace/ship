@@ -10,7 +10,7 @@ import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 // import makeSelectPosts from '../selectors';
 
-export class FiguringOutPosts extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class FiguringOutPosts extends React.Component { 
   render() {
     return (
       <div>
