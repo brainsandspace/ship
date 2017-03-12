@@ -17,8 +17,13 @@ postInstances.set('Title Goes Here', {
 });
 
 postInstances.set('Random Thoughts', {
-  filename: 'random-thoughts',
+  slug: 'random-thoughts',
   dates: [new Date(2017, 2, 6, 1, 56)],
+});
+
+postInstances.set('Blogging CLI Tool?', {
+  slug: 'excited-for-the-future',
+  dates: [new Date(2017, 2, 12, 4, 4)],
 });
 
 export default postInstances;

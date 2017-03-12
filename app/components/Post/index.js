@@ -4,8 +4,8 @@
 *
 */
 
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 display: flex;
@@ -16,31 +16,35 @@ justify-content: center;
   max-width: 800px;
   margin: 0 20px;
 }
+
+i::before, i::after {
+  content: '*';
+  color: #ddd;
+  position: absolute;
+  z-index: -1;
+  margin-top: -0.25rem;
+  margin-left: -0.3rem;
+}
+
+i::after {
+}
 `;
 
 class Post extends React.Component {
   componentWillMount() {
     this.setState({ normatives: [] });
     // TODO make this more accomodating to nested children
-<<<<<<< HEAD
-    console.log(this.props);
-    if (Array.isArray(this.props.children[2])) {
-      const innerText = this.props.children[2].props.children.reduce(
+    let innerText = '';
+    if (this.children && this.children[2].props.children.reduce) {
+      innerText = this.props.children[2].props.children.reduce(
         (acc, curVal) => {
-          if (typeof curVal === "string") {
+          if (typeof curVal === 'string') {
             return acc + curVal;
           }
         },
-        ""
+        ''
       );
-
-      console.log(innerText.match(/I should[^.]*/g));
-
-      this.setState({ normatives: innerText.match(/I should[^.]*/g) });
-=======
-    const innerText = this.props.children[2].props.children.reduce((acc, curVal) => {
-      if (typeof curVal === 'string') { return acc + curVal; }
-    }, '');
+    }
 
     console.log(innerText.match(/I should[^.]*/g));
 
@@ -48,7 +52,6 @@ class Post extends React.Component {
       this.setState({ normatives: innerText.match(/I should[^.]*/g) });
     } else {
       this.setState({ normatives: [] });
->>>>>>> 2a6d1cd0d4688cd87af3a6d5aa58248416ac0e30
     }
   }
 
@@ -57,7 +60,7 @@ class Post extends React.Component {
       <Wrapper>
         <div>
           {this.state.normatives.map(statement => (
-            <li key={Math.random()}>{statement.replace("I should ", "")}</li>
+            <li key={Math.random()}>{statement.replace('I should ', '')}</li>
           ))}
         </div>
         <div className="post">

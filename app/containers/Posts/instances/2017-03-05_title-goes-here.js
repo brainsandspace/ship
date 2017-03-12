@@ -6,6 +6,7 @@ import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 
+import postInstances from '../postInstances.js';
 
 class TitleGoesHere extends React.Component {
   render() {
@@ -13,7 +14,8 @@ class TitleGoesHere extends React.Component {
       <Post>
         <PostHeading>
           <PostTitle>The Post Title Goes Here</PostTitle>
-          <PostDate> 2/5/17</PostDate>
+          <PostDate>{postInstances.get('Blogging CLI Tool?').dates.map((date) => <span key={date}>{date.toDateString()}</span>)}
+          </PostDate>
         </PostHeading>
         <PostP>
           Gosh darn I need ot sit down and actually figure out how it is I want to organize posts. I need to set up dynamic routing. It would probably be nice to have things set up so I can just run `npm run generate post {'{posttitle}'}` and boom new post with everything set up. Eventually a gui might be nice.
