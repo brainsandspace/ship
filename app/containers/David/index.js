@@ -12,6 +12,7 @@ import makeSelectDavid from "./selectors";
 import styled from 'styled-components';
 
 import Hypno from 'components/Hypno';
+import Timeline from 'components/Timeline';
 
 const Wrapper = styled.div`
 .masthead {
@@ -36,6 +37,7 @@ export class David extends React.Component {
         />
           <Hypno></Hypno>
         <div className="masthead"></div>
+          <Timeline></Timeline>
       </Wrapper>
     );
   }

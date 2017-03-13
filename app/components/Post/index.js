@@ -28,6 +28,10 @@ i::before, i::after {
 
 i::after {
 }
+
+img {
+  max-width: 100%;
+}
 `;
 
 class Post extends React.Component {

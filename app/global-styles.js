@@ -5,8 +5,8 @@ injectGlobal`
   html,
   body,
   #app {
-    height: 100%;
-    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
     padding: 0;
     margin: 0;
   }
@@ -24,14 +24,6 @@ injectGlobal`
     font-family: monospace;
     color: #ccc;
   }
-
-  #app {
-    background-color: #fafafa;
-    min-height: 100%;
-    min-width: 100%;
-    position: absolute;
-    }
-  
 
   p,
   label {

@@ -31,6 +31,10 @@ import Thought from 'components/Thought';
 
 import postInstances from '../postInstances';
 
+import errorImage from 'images/error-image.png';
+
+
+
 export class BloggingCliTool extends React.Component {
   render() {
     return (
@@ -68,7 +72,9 @@ export class BloggingCliTool extends React.Component {
         <PostP>
           For example, I need to implement some unit and integration testing. Right now this is what I see in my browser.
         </PostP>
-        <img src="images/error-image.png" alt="" />
+
+        <img src={errorImage} alt="a red error" />
+
         <PostP>
           Like I can't even test if that error-image screenshot worked right now because of the error blocking my way.
         </PostP>
