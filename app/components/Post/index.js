@@ -49,8 +49,7 @@ class Post extends React.Component {
         ''
       );
     }
-
-    console.log(innerText.match(/I should[^.]*/g));
+    console.log('innerText', innerText.match(/I should[^.]*/g));
 
     if (innerText) {
       this.setState({ normatives: innerText.match(/I should[^.]*/g) });
