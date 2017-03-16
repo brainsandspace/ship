@@ -16,6 +16,9 @@ module.exports = {
   plugins: ['import', 'redux-saga', 'react', 'jsx-a11y'],
   globals: {
     NODE_ENV: true,
+    describe: true,
+    it: true,
+    expect: true,
   },
   rules: {
     indent: [
@@ -40,7 +43,7 @@ module.exports = {
       },
     ],
     "react/jsx-filename-extension": 0,
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': 0,//['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-unused-vars': 'error',
