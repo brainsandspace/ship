@@ -26,13 +26,10 @@ import PostP from 'components/PostP';
 import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
-
 import Thought from 'components/Thought';
-
-import postInstances from '../postInstances';
-
 import errorImage from 'images/error-image.png';
 
+import postInstances from '../postInstances';
 
 
 export class BloggingCliTool extends React.Component {
@@ -45,8 +42,8 @@ export class BloggingCliTool extends React.Component {
           meta={[
             {
               name: 'description',
-              content: 'Description of Blogging CLI Tool?'
-            }
+              content: 'Description of Blogging CLI Tool?',
+            },
           ]}
         />
 
@@ -119,12 +116,29 @@ export class BloggingCliTool extends React.Component {
             Graph data structure. Maybe. Yes probably definitely fo the social aspects.
           </li>
           <PostP>
-            <Thought>It has been a while since I have reminisced about overhead projectors.</Thought> Imagine you have all these different slides.<Thought>The difference between <i>gource</i> and <i>roz</i> is the scale. Gource tracks commits, not every time you touch a file in between commits.</Thought> I should go to sleep. GODDAMMIT CIRCADIA!
+            <Thought>
+              It has been a while since I have reminisced about overhead projectors.
+            </Thought>
+            {' '}
+            Imagine you have all these different slides.
+            <Thought>
+              The difference between
+              {' '}
+              <i>gource</i>
+              {' '}
+              and
+              {' '}
+              <i>roz</i>
+              {' '}
+              is the scale. Gource tracks commits, not every time you touch a file in between commits.
+            </Thought>
+            {' '}
+            I should go to sleep. GODDAMMIT CIRCADIA!
           </PostP>
         </ul>
 
-          <h2>This thing could be a study in building itself.</h2>
-          <h1>Tomorrow I must come back.</h1>
+        <h2>This thing could be a study in building itself.</h2>
+        <h1>Tomorrow I must come back.</h1>
       </Post>
     );
   }
@@ -134,7 +148,7 @@ BloggingCliTool.propTypes = {};
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch
+    dispatch,
   };
 }
 

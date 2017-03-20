@@ -113,6 +113,26 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/inspirators',
+      name: 'inspirators',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/Inspirators/reducer'),
+          import('containers/Inspirators/sagas'),
+          import('containers/Inspirators'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('inspirators', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

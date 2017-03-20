@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import ComingSoon from '../index';
+// import { Inspirators } from '../index';
 
-describe('<ComingSoon />', () => {
+describe('<Inspirators />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

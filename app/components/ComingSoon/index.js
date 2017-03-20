@@ -1,12 +1,11 @@
-
 /**
 *
 * ComingSoon
 *
 */
 
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 display: flex;
@@ -26,16 +25,12 @@ h1 {
 }
 `;
 
-class ComingSoon extends React.Component {
-  render() {
-    return (
-      <Wrapper>
-        <h1>BRAINS <span>AND</span> SPACE</h1>
-        <h2>coming soon</h2>
-      </Wrapper>
-    );
-  }
-}
+const ComingSoon = () => (
+  <Wrapper>
+    <h1>BRAINS <span>AND</span> SPACE</h1>
+    <h2>coming soon</h2>
+  </Wrapper>
+);
 
 ComingSoon.propTypes = {};
 

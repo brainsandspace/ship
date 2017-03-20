@@ -28,24 +28,33 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
+    'import/no-extraneous-dependencies': 0,
+    'import/no-unresolved': 0,
+    'import/extensions': 0,
     'import/first': 2,
     'import/order': [
       'error',
       {
-        groups: [
-          'builtin',
-          'external',
-          'parent',
-          'sibling',
-          'index',
-        ],
-      'newlines-between': 'always'
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
       },
     ],
-    "react/jsx-filename-extension": 0,
-    'linebreak-style': 0,//['error', 'unix'],
+    'react/jsx-filename-extension': 0,
+    'react/require-extension': 0,
+    'react/no-unescaped-entities': 0,
+    'linebreak-style': 0, //['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-unused-vars': 'error',
+    'max-len': 0,
+    'no-trailing-spaces': 0,
+    'comma-dangle': 0, // let prettier deal with that ish
+  },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: './internals/webpack/webpack.prod.babel.js',
+      },
+    },
   },
 };

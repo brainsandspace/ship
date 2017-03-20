@@ -26,4 +26,9 @@ postInstances.set('Blogging CLI Tool?', {
   dates: [new Date(2017, 2, 12, 4, 4)],
 });
 
+postInstances.set('Hrmph', {
+  slug: 'another-week-down-the-drain',
+  dates: [new Date(2017, 2, 20, 2, 7)],
+});
+
 export default postInstances;
