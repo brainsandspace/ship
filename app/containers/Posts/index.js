@@ -1,78 +1,36 @@
+/* eslint-disable no-unneeded-ternary*/
+
 /*
  *
  * Posts
  *
  */
 
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import Helmet from "react-helmet";
-import { createStructuredSelector } from "reselect";
-import makeSelectPosts from "./selectors";
-import { makeSelectCurrentPost } from "./selectors";
-import { push } from "react-router-redux";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
+import { createStructuredSelector } from 'reselect';
+import makeSelectPosts from './selectors';
+import { makeSelectCurrentPost } from './selectors';
+import { push } from 'react-router-redux';
 
-import { getPost } from "./actions";
-import postInstances from "./postInstances";
+import { getPost } from './actions';
+import postInstances from './postInstances';
+import PostList from 'components/PostList';
 
-import styled from "styled-components";
+const color = 'red';
+
+import styled from 'styled-components';
 const Wrapper = styled.div`
+
   code {
     color: darkcyan;
   }
-  ul {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-top: 0;
-    list-style: none;
-    padding-left: 0;
-
-    transition: 1s;
-  }
-
-   ul.folded {
-    transition: 1s;
-    grid-row-gap: 20px;
-  }
-  ul.unfolded {
-    transition: 1s;
-    grid-row-gap: 200px;
-  }
 `;
 
-const LI = styled.li`
-color: steelblue;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-column-gap: 5px;
+const UL = styled.ul`
 
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
 
-h3 {
-  margin: 0;
-  font-weight: normal;
-}
-
-p.date {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transform: scaleX(-1);
-  span {
-  } 
-}
-
-h3:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
 `;
 
 export class Posts extends React.Component {
@@ -83,36 +41,18 @@ export class Posts extends React.Component {
           title="Posts"
           meta={[
             {
-              name: "description",
-              content: "All the posts of posty type type post"
-            }
+              name: 'description',
+              content: 'All the posts of posty type type post',
+            },
           ]}
         />
-        <ul className={this.props.children ? "folded" : "unfolded"}>
-          {Array.from(postInstances).reverse().map(([
-            title,
-            { slug, dates }
-          ]) => (
-            <LI key={title}>
-              {dates
-                ? <p className="date">
-                    {dates.map(d => (
-                      <span key={`${slug}-${d}`}>{d.toDateString()}</span>
-                    ))}
-                  </p>
-                : null}
-              <div>
-                <h3
-                  onClick={() => {
-                    this.props.onClickPost(slug, dates[0]);
-                  }}
-                >
-                  {title}
-                </h3>
-              </div>
-            </LI>
-          ))}
-        </ul>
+        <PostList
+          postInstances={postInstances}
+          folded={this.props.children ? true : false}
+          onClickPost={this.props.onClickPost}
+        >
+          {this.props}
+        </PostList>
         {this.props.children}
       </Wrapper>
     );
@@ -121,18 +61,18 @@ export class Posts extends React.Component {
 
 Posts.propTypes = {
   onClickPost: PropTypes.func.isRequired,
-  children: PropTypes.node
+  children: PropTypes.node,
   // dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   // Posts: makeSelectPosts(),
-  currentPost: makeSelectCurrentPost
+  currentPost: makeSelectCurrentPost,
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClickPost: (slug, date) => dispatch(getPost(dispatch, slug, date)) //dispatch(push(`/posts/${filename}`)),
+    onClickPost: (slug, date) => dispatch(getPost(dispatch, slug, date)), //dispatch(push(`/posts/${filename}`)),
   };
 }
 

@@ -18,6 +18,7 @@ module.exports = (plop) => {
   plop.setGenerator('route', routeGenerator);
   // plop.setGenerator('language', languageGenerator);
   plop.setGenerator('post', postGenerator);
+  
   plop.addHelper('directory', (comp) => {
     try {
       fs.accessSync(path.join(__dirname, `../../app/containers/${comp}`), fs.F_OK);

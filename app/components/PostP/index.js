@@ -11,7 +11,6 @@ const Wrapper = styled.p`
  
 `;
 
-
 function PostP(props) {
   return (
     <Wrapper>
@@ -20,8 +19,6 @@ function PostP(props) {
   );
 }
 
-PostP.propTypes = {
-
-};
+PostP.propTypes = {};
 
 export default PostP;

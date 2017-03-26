@@ -31,4 +31,9 @@ postInstances.set('Hrmph', {
   dates: [new Date(2017, 2, 20, 2, 7)],
 });
 
+postInstances.set('Woop Woop', {
+  slug: 'things-are-lookin-up',
+  dates: [new Date(2017, 2, 23, 2, 13)],
+});
+
 export default postInstances;

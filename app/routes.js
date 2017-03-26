@@ -5,8 +5,8 @@
 import { getAsyncInjectors } from 'utils/asyncInjectors';
 import NotFoundPage from 'containers/NotFoundPage';
 
-const errorLoading = (err) => {
-  console.error('Dynamic page loading failed', err); 
+const errorLoading = err => {
+  console.error('Dynamic page loading failed', err);
 };
 
 const errorLoadingPost = (err, cb) => {
@@ -14,22 +14,21 @@ const errorLoadingPost = (err, cb) => {
   loadModule(cb(null, NotFoundPage));
 };
 
-const loadModule = (cb) => (componentModule) => {
-  cb(null, componentModule.default);
-};
+const loadModule = cb =>
+  componentModule => {
+    cb(null, componentModule.default);
+  };
 
 export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
-  const { injectReducer, injectSagas } = getAsyncInjectors(store); 
+  const { injectReducer, injectSagas } = getAsyncInjectors(store);
 
   return [
     {
       path: '/',
       name: 'home',
       getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          import('containers/HomePage'),
-        ]);
+        const importModules = Promise.all([import('containers/HomePage')]);
 
         const renderRoute = loadModule(cb);
 
@@ -39,7 +38,8 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '/posts',
       name: 'posts',
       getComponent(nextState, cb) {
@@ -67,24 +67,34 @@ export default function createRoutes(store) {
           name: 'post',
           getComponent(nextState, cb) {
             // TODO figure out How well I am actually using code splitting.
-            console.log(nextState)
-            
-            const importModules = Promise.all([
-              import(`containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}.js`),
-            ]);
 
+            let importModules;
+            if (nextState.location.state) {
+              importModules = Promise.all([
+                import(
+                  `containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}.js`,
+                ),
+              ]);
+            } else {
+              importModules = Promise.all([
+                import(
+                  `containers/Posts/instances/${nextState.params.slug}`,
+                ),
+              ]);
+            }
             const renderRoute = loadModule(cb);
 
             importModules.then(([component]) => {
               renderRoute(component);
             });
-            
+
             // TODO figure out how to throw in a 404 here if teh post does not exist
-            importModules.catch((errorLoading));
-          }
-        }
-      ]
-    }, {
+            importModules.catch(errorLoading);
+          },
+        },
+      ],
+    },
+    {
       path: '/things-to-check-out',
       name: 'thingsToCheckOut',
       getComponent(location, cb) {
@@ -92,7 +102,8 @@ export default function createRoutes(store) {
           .then(loadModule(cb))
           .catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: 'david',
       name: 'david',
       getComponent(nextState, cb) {
@@ -112,7 +123,8 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '/inspirators',
       name: 'inspirators',
       getComponent(nextState, cb) {
@@ -132,7 +144,8 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

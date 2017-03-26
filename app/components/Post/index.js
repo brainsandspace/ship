@@ -13,9 +13,22 @@ flex-direction: row;
 justify-content: center;
 
 .post {
-  max-width: 800px;
-  margin: 0 20px;
+  margin-left: 0;
 }
+
+.post > *:not( .post-search ):not( video ), .post-search > *, .post-search input {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50rem;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.post-search {
+  margin-left: 0;
+}
+
+
 
 i::before, i::after {
   content: '*';
@@ -60,15 +73,15 @@ class Post extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <Wrapper className="post">
         <div>
           {this.state.normatives.map(statement => (
             <li key={Math.random()}>{statement.replace('I should ', '')}</li>
           ))}
         </div>
-        <div className="post">
+        <article className="post">
           {this.props.children}
-        </div>
+        </article>
       </Wrapper>
     );
   }

@@ -4,15 +4,20 @@
 *
 */
 
-import React, { PropTypes} from 'react';
-// import styled from 'styled-components';
+import React, { PropTypes } from 'react';
+import styled from 'styled-components';
 
+const Wrapper = styled.div`
+h3 {
+  display: inline;
+}
+`;
 
 function Inspirator({ children }) {
   return (
-    <div>
+    <Wrapper>
       {children}
-    </div>
+    </Wrapper>
   );
 }
 
