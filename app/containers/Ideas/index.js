@@ -41,6 +41,7 @@ export class Ideas extends React.PureComponent {
         />
         <h1>Ideas</h1>
         <ul>
+          TODO arrange these things in a way that makes sense. (cards as members of lists, not just all thrown out here, and then add descriptions, labels, whatever you want!)
           {this.state.cards &&
             this.state.cards.map(card => (
               <li key={shortid.generate()}>{card.name}</li>

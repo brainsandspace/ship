@@ -39,7 +39,7 @@ class TitleGoesHere extends React.Component {
             , but rather the vim extension for
             {' '}
             <b>VS Code</b>
-            . There are certain functionalities that it takes away from me. For instance, CTRL+D ought to highlight the next instance of the currently highlighted word, instead it looks like it decrements the indentation. Maybe that is actually a vim command? It is quite possible I just mostly need to learn more vim commands. THe problem is that vim commands are not implemented perfectly in the extension either. Like global find replace with confirmation.
+            . There are certain functionalities that it takes away from me. For instance, CTRL+D ought to highlight the next instance of the currently highlighted word, instead it looks like it decrements the indentation. Maybe that is actually a vim command? It is quite possible I just mostly need to learn more vim commands. The problem is that vim commands are not implemented perfectly in the extension either. Like global find replace with confirmation.
             {' '}
             <code>:%s/foo/bar/gc</code>
             {' '}

@@ -11,6 +11,7 @@ import { createStructuredSelector } from "reselect";
 import makeSelectDavid from "./selectors";
 import styled from 'styled-components';
 
+import Revise from 'components/Revise';
 import Hypno from 'components/Hypno';
 import Timeline from 'components/Timeline';
 
@@ -37,6 +38,7 @@ export class David extends React.Component {
         />
           <Hypno></Hypno>
         <div className="masthead"></div>
+          I think the first thing I ever coded was in junior high school. One of those I'll "guess"" your number just by doing a bunch of operations <Revise>and then their inverses and you'll be amazed. This is bad.</Revise>.'
           <Timeline></Timeline>
       </Wrapper>
     );

@@ -99,6 +99,8 @@ class PostSearch extends React.Component {
               this.onChange(evt);
             }}
             onFocus={this.onFocus}
+            onMouseEnter={this.onFocus}
+            onMouseLeave={this.onBlur}
             onBlur={this.onBlur}
           />
         </form>

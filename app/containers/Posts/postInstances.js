@@ -36,4 +36,9 @@ postInstances.set('Woop Woop', {
   dates: [new Date(2017, 2, 23, 2, 13)],
 });
 
+postInstances.set('Broken Pipes', {
+  slug: 'itsa-mea-mario',
+  dates: [new Date(2017, 2, 27, 3, 0)],
+});
+
 export default postInstances;

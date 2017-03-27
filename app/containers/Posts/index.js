@@ -22,10 +22,6 @@ const color = 'red';
 
 import styled from 'styled-components';
 const Wrapper = styled.div`
-
-  code {
-    color: darkcyan;
-  }
 `;
 
 const UL = styled.ul`
