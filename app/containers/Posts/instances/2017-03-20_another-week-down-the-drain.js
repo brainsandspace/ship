@@ -17,6 +17,15 @@ import PostDate from 'components/PostDate';
 import postInstances from '../postInstances';
 
 export class Hrmph extends React.Component {
+
+  componentDidMount() {
+    document.designMode = 'on';
+  }
+
+  componentWillUnmount() {
+    document.designMode = 'off';
+  }
+  
   render() {
     return (
       <Post>
@@ -34,6 +43,7 @@ export class Hrmph extends React.Component {
               .dates.map(date => <span key={date}>{date.toDateString()}</span>)}
           </PostDate>
         </PostHeading>
+        <div className="post-body">
 
         <PostP>
           Why is this centered?
@@ -72,6 +82,8 @@ export class Hrmph extends React.Component {
         <PostP>
           What complicates the matter even more is that the people at my company who I now am reporting to don't have a clue what the difference between HTML, CSS, and JavaScript are. They don't know what a canvas element is. The should know more if they want to be successful in the industry we are in. It can't all come down to me. I, of course, take pride in my work, and am not willing to produce poor quality work because others' around me, but I can't put all my time into fixing other people's mistakes, laziness, and just general shitty work. It has been very frustrating. Hrmph.
         </PostP>
+        
+        </div>
       </Post>
     );
   }

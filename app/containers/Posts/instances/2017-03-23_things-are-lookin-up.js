@@ -36,31 +36,33 @@ export class WoopWoop extends React.Component {
           </PostDate>
         </PostHeading>
 
-        <PostP>
-          I find myself often choosing to just do classic posts. I should really give myself the option for writing in Markdown.
+        <div className="post-body">
+          <PostP>
+            I find myself often choosing to just do classic posts. I should really give myself the option for writing in Markdown.
 
-          There are sooo many things a user should not have to do that I have to do right now when making a new blog post. I need to tighten that up.
-        </PostP>
-        <h2>
-          I feel like it's a really good time to be in the software tooling industry.
-        </h2>
-        <PostP>
+            There are sooo many things a user should not have to do that I have to do right now when making a new blog post. I need to tighten that up.
+          </PostP>
+          <h2>
+            I feel like it's a really good time to be in the software tooling industry.
+          </h2>
+          <PostP>
 
-          Don't you feel that emphasis right there of that heading?
+            Don't you feel that emphasis right there of that heading?
 
-        </PostP>
+          </PostP>
 
-        <PostSearch>graphics card performance check ubuntu</PostSearch>
+          <PostSearch>graphics card performance check ubuntu</PostSearch>
 
-        <PostP>
-          You haven't the least idea how much time making that search bar took me. And it isn't done. But it's mostly done. Kinda. It isn't functional yet. Like it wont Google Things. You
-          {' '}
-          <i>can</i>
-          {' '}
-          type.
-        </PostP>
+          <PostP>
+            You haven't the least idea how much time making that search bar took me. And it isn't done. But it's mostly done. Kinda. It isn't functional yet. Like it wont Google Things. You
+            {' '}
+            <i>can</i>
+            {' '}
+            type.
+          </PostP>
 
-        <h3>Fuck actually this page is broken. Will fix in future.</h3>
+          <h3>Fuck actually this page is broken. Will fix in future.</h3>
+        </div>
       </Post>
     );
   }

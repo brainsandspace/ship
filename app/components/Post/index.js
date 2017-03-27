@@ -1,11 +1,15 @@
+/* eslint-disable react/no-did-mount-set-state*/
+
 /**
 *
 * Post
 *
 */
-
 import React from 'react';
 import styled from 'styled-components';
+import socrates from 'utils/socrates';
+
+import Normatives from 'components/Normatives';
 
 const Wrapper = styled.div`
 display: flex;
@@ -28,8 +32,6 @@ justify-content: center;
   margin-left: 0;
 }
 
-
-
 i::before, i::after {
   content: '*';
   color: #ddd;
@@ -45,48 +47,64 @@ i::after {
 img {
   max-width: 100%;
 }
+
+.highlight {
+  background: khaki;
+}
 `;
 
 class Post extends React.Component {
   componentWillMount() {
-    this.setState({ normatives: [] });
-    // TODO make this more accomodating to nested children
-    let innerText = '';
-    if (this.children && this.children[2].props.children.reduce) {
-      innerText = this.props.children[2].props.children.reduce(
-        (acc, curVal) => {
-          if (typeof curVal === 'string') {
-            return acc + curVal;
-          }
-        },
-        ''
-      );
-    }
-    console.log('innerText', innerText.match(/I should[^.]*/g));
+    this.setState({ text: '' });
+  }
 
-    if (innerText) {
-      this.setState({ normatives: innerText.match(/I should[^.]*/g) });
-    } else {
-      this.setState({ normatives: [] });
+  componentDidMount() {
+    if (document.querySelector('.post-body')) {
+      const innerText = document.querySelector('.post-body').innerText;
+
+      this.setState({ text: innerText });
+
+      console.log(socrates(innerText));
     }
+  }
+
+  mouseEnterNormative(evt) {
+    console.log(evt.target.innerText);
+    console.log(
+      document
+        .querySelector('.post-body')
+        .innerHTML.match(evt.target.innerText),
+    );
+
+    this.setState({
+      highlightedChildren: document
+        .querySelector('.post-body')
+        .innerHTML.replace(
+          evt.target.innerText,
+          `<span class="highlight">${evt.target.innerText}</span>`,
+        ),
+    });
   }
 
   render() {
     return (
       <Wrapper className="post">
-        <div>
-          {this.state.normatives.map(statement => (
-            <li key={Math.random()}>{statement.replace('I should ', '')}</li>
-          ))}
-        </div>
+
+        <Normatives
+          onMouseEnter={(evt) => { this.mouseEnterNormative(evt); }}
+          text={this.state.text}
+        />
+
         <article className="post">
-          {this.props.children}
+          {this.state.highlightedChildren
+            ? this.state.highlightedChildren
+            : this.props.children}
         </article>
       </Wrapper>
     );
   }
 }
 
-Post.propTypes = {};
+Post.propTypes = { children: React.PropTypes.node };
 
 export default Post;
