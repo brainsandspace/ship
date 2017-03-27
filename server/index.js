@@ -1,8 +1,8 @@
 
-
+const fs = require('fs');
 const express = require('express');
 const logger = require('./logger');
-
+const chalk = require('chalk');
 const argv = require('minimist')(process.argv.slice(2));
 const setup = require('./middlewares/frontendMiddleware');
 const isDev = process.env.NODE_ENV !== 'production';
@@ -14,15 +14,29 @@ const app = express();
 // app.use('/api', myApi);
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
+
+/*
+app.use('/trello', (req, res, next) => {
+  
+  console.log(req.originalUrl);
+  console.log(req.method);
+//  console.log(JSON.parse(req.body));
+//  console.log(JSON.stringify(req.body));
+  fs.writeFile('public/thisisatest.json', JSON.stringify(req.body), () => {});
+  console.log(chalk.yellow(req.method));
+  console.log(req.body);
+  res.sendStatus(200);
+});
+*/
+
 app.use('/webhook', (req, res, next) => {
   
   console.log(req.get('X-Github-Event'));
   console.log(req.get('X-Github-Delivery'));
   console.log(req.originalUrl);
-  console.log(req.method);
 //  console.log(JSON.parse(req.body));
   console.log(JSON.stringify(req.body));
-  res.sendStatus(204);
+  res.sendStatus(200);
 });
 
 // In production we need to pass these values in instead of relying on webpack
