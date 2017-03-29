@@ -41,4 +41,9 @@ postInstances.set('Broken Pipes', {
   dates: [new Date(2017, 2, 27, 3, 0)],
 });
 
+postInstances.set('Internet Privacy', {
+  slug: 'fuck-those-republicans',
+  dates: [new Date(2017, 2, 29, 5, 25)],
+});
+
 export default postInstances;

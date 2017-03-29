@@ -38,6 +38,9 @@ injectGlobal`
     color: darkcyan;
   }
 
+  .hot-take-alert {
+    color: orange;
+  }
 
 `
 ;
