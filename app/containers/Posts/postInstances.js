@@ -46,4 +46,9 @@ postInstances.set('Internet Privacy', {
   dates: [new Date(2017, 2, 29, 5, 25)],
 });
 
+postInstances.set('Now', {
+  slug: 'i-feel-a-blog-post-coming-on',
+  dates: [new Date(2017, 2, 31, 0, 19)],
+});
+
 export default postInstances;
