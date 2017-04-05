@@ -11,14 +11,10 @@ const Wrapper = styled.span`
 color: gainsboro;
 
 .floating {
-  animation: floatAn 1s infinite;
-}
-
-
-@keyframes floatAn {
-  to {
-    color: red;
-  }
+  color: #444;
+  font-weight: 550;
+  font-size:5rem;
+  font-family: 'ah natural';
 }
 `;
 

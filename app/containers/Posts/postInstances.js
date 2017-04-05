@@ -51,4 +51,14 @@ postInstances.set('Now', {
   dates: [new Date(2017, 2, 31, 0, 19)],
 });
 
+postInstances.set("A Better Night's Sleep", {
+  slug: 'production-error-tracking',
+  dates: [new Date(2017, 2, 31, 16, 24)],
+});
+
+postInstances.set('Whoah?', {
+  slug: 'whoa',
+  dates: [new Date(2017, 3, 3, 2, 16)],
+});
+
 export default postInstances;

@@ -8,9 +8,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Highlight = styled.span`
+
 background: coral;
-transform: scale(0.9);
-display: inline-block;
+
+
+&::after, &::before {
+  content: '⌨';
+  opacity: 0.2;
+}
+
 `;
 
 function Revise(props) {
@@ -26,3 +32,4 @@ Revise.propTypes = {
 };
 
 export default Revise;
+

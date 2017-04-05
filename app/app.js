@@ -15,8 +15,9 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
-// import FontFaceObserver from 'fontfaceobserver';
+import FontFaceObserver from 'fontfaceobserver';
 import 'sanitize.css/sanitize.css';
+import 'fonts/fonts.css'
 
 // Import root app
 import App from 'containers/App';
@@ -47,14 +48,16 @@ import createRoutes from './routes';
 
 // Observe loading of Marck Script (to remove Marck Script, remove the <link> tag in
 // the index.html file and this observer)
-// const marckScriptObserver = new FontFaceObserver('Marck Script', {});
+const ahNaturalObserver = new FontFaceObserver('ah natural', {});
 
-// // When Marck Script is loaded, add a font-family using Open Sans to the body
-// marckScriptObserver.load().then(() => {
-//   document.body.classList.add('fontLoaded');
-// }, () => {
+// When Marck Script is loaded, add a font-family using Open Sans to the body
+// ahNaturalObserver.load().then(() => {
+//   document.body.classList.add('fontLoaded')
+// }, (e) => {
+//   console.log(e)
 //   document.body.classList.remove('fontLoaded');
-// });
+//   debugger
+// }).catch(e => console.error(e));
 
 document.designMode = 'off';
 // Create redux store with history

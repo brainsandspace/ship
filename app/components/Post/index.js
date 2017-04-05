@@ -32,6 +32,10 @@ justify-content: center;
   margin-left: 0;
 }
 
+.post-body {
+  width: 50rem;
+}
+
 i::before, i::after {
   content: '*';
   color: #ddd;

@@ -1,0 +1,30 @@
+# Whoa
+**whoah**
+
+*All Markdown should work.*
+
+Because Markdown is **dope**.
+
+So EXPRESSIVE AND {fast, easy, readable}(?)
+
+And here's onemore(?).
+
+Let's see... . when this is all said and done, those dots should have appeared one by one.
+```
+const foo = (bar) => { 
+  console.log(bar);
+};
+```
+## Depth 2 Title
+
+**Just** is a weird word.
+
+Let's explore its etymology.
+
+So is **token**.
+
+Been going slow and steady on this here thing. But excellent **progress is being made**!
+
+To be fair with myself, I didn't know what an [Abstract Syntax Tree](ast.com) really was a few days ago.
+
+|-This is a tangent. You can tell by the way it {is, is enclosed by |pipes| and -hyphens-}(?)-|

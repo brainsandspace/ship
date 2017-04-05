@@ -1,7 +1,14 @@
 import { injectGlobal } from 'styled-components';
+import ahNatural from 'components/../fonts/ah natural.ttf';
 
-
+// console.log(ahNatural);
+// debugger;
 injectGlobal`
+// @font-face {
+//   font-family: 'ah natural',
+//   src: url(ahNatural)
+// }
+
   html,
   body,
   #app {
@@ -18,6 +25,7 @@ injectGlobal`
   body.fontLoaded {
     font-family: Ubuntu, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+    font-family: 'ah natural';
   }
 
   .date {
