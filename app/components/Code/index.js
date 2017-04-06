@@ -8,6 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.pre`
+
   padding: 1rem;
 
   &.block {
@@ -26,7 +27,7 @@ const Wrapper = styled.pre`
 
 function Code({ children, block = false }) {
   return (
-    <Wrapper className={block ? 'block' : 'inline'}>
+    <Wrapper className={block || children.includes('\n') ? 'block' : 'inline'}>
       <code>
         {children}
       </code>

@@ -19,6 +19,8 @@ import Chunk from 'components/Chunk';
 import postInstances from '../postInstances';
 
 import content from './2017-04-03_whoa.whoa';
+
+
 console.log(content);
 
 export class Whoah extends React.Component {
@@ -93,7 +95,6 @@ export class Whoah extends React.Component {
           <Chunk type={content.type}>{content.children}</Chunk>
 
           <PostP>
-            Start writing in here.
           </PostP>
 
         </div>

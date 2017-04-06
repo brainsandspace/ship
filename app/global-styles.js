@@ -4,11 +4,6 @@ import ahNatural from 'components/../fonts/ah natural.ttf';
 // console.log(ahNatural);
 // debugger;
 injectGlobal`
-// @font-face {
-//   font-family: 'ah natural',
-//   src: url(ahNatural)
-// }
-
   html,
   body,
   #app {
@@ -19,11 +14,11 @@ injectGlobal`
   }
 
   body {
-    font-family: Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: /*Ubuntu,*/ 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   body.fontLoaded {
-    font-family: Ubuntu, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: /*Ubuntu,*/ 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
     font-family: 'ah natural';
   }

@@ -9,6 +9,8 @@ import React from 'react';
 
 import WordChoice from 'components/WordChoice';
 import Ellipsis from 'components/Ellipsis';
+import Tangent from 'components/Tangent';
+import Code from 'components/Code';
 
 function Chunk({ type, children, ...props }) {
   let Tag;
@@ -23,6 +25,9 @@ function Chunk({ type, children, ...props }) {
       Tag = Ellipsis;
       break;
 
+    case 'tangent':
+      Tag = Tangent;
+      break;
     /** Custom Elements Above */
 
     case 'heading':
@@ -38,7 +43,7 @@ function Chunk({ type, children, ...props }) {
       break;
 
     case 'code':
-      Tag = 'code';
+      Tag = Code;
       break;
 
     case 'strong':
@@ -58,7 +63,9 @@ function Chunk({ type, children, ...props }) {
       Tag = 'div';
       break;
 
+
     default:
+      debugger;
       Tag = 'span';
       break;
 
