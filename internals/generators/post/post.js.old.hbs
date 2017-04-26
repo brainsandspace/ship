@@ -4,23 +4,29 @@
  *
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
+{{#if classicPost}}
 import Post from 'components/Post';
+import PostP from 'components/PostP';
 import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
-import Chunk from 'components/Chunk';
+{{/if}}
 
 import postInstances from '../postInstances';
 
-import content from './{{date}}_{{ slug }}.whoa';
-
-const {{ camelCase title }} = () => { 
+export class {{ properCase title }} extends React.Component { 
+  render() {
     return (
 
+      {{#if classicPost}}
       <Post>
+      {{else}}
+      <div>
+      {{/if}}
 
         <Helmet
           title="{{ titleCase title }}"
@@ -29,6 +35,7 @@ const {{ camelCase title }} = () => {
           ]{{curly}}
         />
 
+        {{#if classicPost}}
         <PostHeading>
           <PostTitle>{{ title }}</PostTitle>
           <PostDate>{{curly true}}postInstances.get('{{ title }}').dates.map((date) => <span key={date}>{{curly true}}date.toDateString(){{curly}}</span>){{curly}}</PostDate>
@@ -36,14 +43,31 @@ const {{ camelCase title }} = () => {
 
         <div className="post-body">
 
-          <Chunk type={content.type}>{content.children}</Chunk>
+          <PostP>
+            Start writing in here.
+          </PostP>
         
         </div>
+        {{/if}}
 
+      {{#if classicPost}}
       </Post>
+      {{else}}
+      </div>
+      {{/if}}
     );
+  }
 }
 
-{{ camelCase title }}.propTypes = {};
+{{ properCase title }}.propTypes = {
 
-export default {{camelCase title}};
+};
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)({{ properCase title }});

@@ -34,6 +34,7 @@ p.white {
 
 .part-one {
   background: black;
+  width: 100%;
 }
 
 .body-container {
@@ -44,7 +45,7 @@ p.white {
   position: absolute;
   flex-direction: column;
   align-items: center;
-
+  width: 100%;
 }
 `;
 
@@ -99,7 +100,7 @@ export class InternetPrivacy extends React.Component {
           </p>
         </Pyramid>
 
-        <div className="body-containr">
+        <div className="body-container">
           <div className="part-one">
             <p>
               The privacy and security of the world is being threatened by the United States government.

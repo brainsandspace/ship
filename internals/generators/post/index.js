@@ -28,12 +28,12 @@ module.exports = {
       default: 'Arthur, King of the Britons',
       validate: value => value.length > 0 ? true : 'King of the who?',
     },
-    {
-      type: 'confirm',
-      name: 'classicPost',
-      default: true,
-      message: 'Is this a classic post?',
-    },
+    // {
+    //   type: 'confirm',
+    //   name: 'classicPost',
+    //   default: true,
+    //   message: 'Is this a classic post?',
+    // },
   ],
   actions: data => {
     const datePrefix = new Date().toISOString().match(/(.+)T/)[1];

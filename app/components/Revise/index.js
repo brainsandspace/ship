@@ -14,7 +14,6 @@ background: coral;
 
 &::after, &::before {
   content: '⌨';
-  opacity: 0.2;
 }
 
 `;

@@ -13,7 +13,7 @@ import Tangent from 'components/Tangent';
 import Code from 'components/Code';
 
 function Chunk({ type, children, ...props }) {
-  let Tag;
+  let Tag, href, src, alt;
   console.log(children, type);
   // TODO GET THIS OUTA HERE
   switch (type) {
@@ -57,12 +57,18 @@ function Chunk({ type, children, ...props }) {
     case 'linkReference':
     case 'link':
       Tag = 'a';
+      href = props.url;
+      break;
+
+    case 'image':
+      Tag = 'img';
+      src = props.url;
+      alt = props.alt;
       break;
 
     case 'root':
       Tag = 'div';
       break;
-
 
     default:
       debugger;
@@ -73,16 +79,18 @@ function Chunk({ type, children, ...props }) {
   }
 
   return (
-    <Tag>
-      {Array.isArray(children)
-        ? children.map(child => {
-            return (
-              <Chunk type={child.type} key={shortid.generate()} {...child}>
-                {child.children ? child.children : child.value}
-              </Chunk>
-            );
-          })
-        : children.value ? children.value : children}
+    <Tag href={href} src={src} alt={alt}>
+      {children
+        ? Array.isArray(children)
+            ? children.map(child => {
+                return (
+                  <Chunk type={child.type} key={shortid.generate()} {...child}>
+                    {child.children ? child.children : child.value}
+                  </Chunk>
+                );
+              })
+            : children.value ? children.value : children
+        : null}
     </Tag>
   );
 }

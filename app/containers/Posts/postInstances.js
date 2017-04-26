@@ -61,4 +61,19 @@ postInstances.set('Whoah?', {
   dates: [new Date(2017, 3, 3, 2, 16)],
 });
 
+postInstances.set('Little Hi Little Hey', {
+  slug: 'something-old-something-new',
+  dates: [new Date(2017, 3, 24, 1, 40)],
+});
+
+postInstances.set('Write Something', {
+  slug: 'write-something',
+  dates: [new Date(2017, 3, 26, 1, 47)],
+});
+
+postInstances.set('Yet Another Test', {
+  slug: 'another-test',
+  dates: [new Date(2017, 3, 26, 2, 3)],
+});
+
 export default postInstances;

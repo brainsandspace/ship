@@ -68,26 +68,49 @@ class Post extends React.Component {
 
       this.setState({ text: innerText });
 
-      console.log(socrates(innerText));
+      console.log('socrates', socrates(innerText));
     }
   }
 
   mouseEnterNormative(evt) {
     console.log(evt.target.innerText);
     console.log(
-      document
-        .querySelector('.post-body')
-        .innerHTML.match(evt.target.innerText),
+      document.querySelector('.post-body').innerText.match(evt.target.innerText)
     );
 
+    console.log(this.props.children[2].props);
     this.setState({
-      highlightedChildren: document
-        .querySelector('.post-body')
-        .innerHTML.replace(
-          evt.target.innerText,
-          `<span class="highlight">${evt.target.innerText}</span>`,
-        ),
+      highlightedChildren: [
+        ...this.props.children[0],
+        this.props.children[1],
+        this.props.children[2],
+        replaceInside(this.props.children[2]),
+      ],
     });
+
+    function replaceInside(child) {
+      if (Array.isArray(child)) {
+        return child.map(replaceInside);
+      } else if (child.props) {
+        if (Array.isArray(child.props.children)) {
+          return child.props.children.map(replaceInside);
+        } else if (typeof child.props.children === 'string') {
+          console.log(' my child', child.props.children);
+          return child.props.children.replace(
+            evt.target.innerText,
+            `<span class="highlight">${evt.target.innerText}</span>`
+          );
+        }
+      } else if (typeof child === 'string') {
+        console.log(' my child', child);
+        return child.replace(
+          evt.target.innerText,
+          `<span class="highlight">${evt.target.innerText}</span>`
+        );
+      }
+
+      return child;
+    }
   }
 
   render() {
@@ -95,7 +118,9 @@ class Post extends React.Component {
       <Wrapper className="post">
 
         <Normatives
-          onMouseEnter={(evt) => { this.mouseEnterNormative(evt); }}
+          onMouseEnter={evt => {
+            this.mouseEnterNormative(evt);
+          }}
           text={this.state.text}
         />
 

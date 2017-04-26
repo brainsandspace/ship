@@ -1,6 +1,6 @@
 /*
  *
- * {{ title }}
+ * Write Something
  *
  */
 
@@ -15,23 +15,23 @@ import Chunk from 'components/Chunk';
 
 import postInstances from '../postInstances';
 
-import content from './{{date}}_{{ slug }}.whoa';
+import content from './2017-04-26_write-something.whoa';
 
-const {{ camelCase title }} = () => { 
+const writeSomething = () => { 
     return (
 
       <Post>
 
         <Helmet
-          title="{{ titleCase title }}"
-          meta={{curly true}}[
-            {{curly true}} name: 'description', content: 'Description of {{ title }}' {{curly}},
-          ]{{curly}}
+          title="Write Something"
+          meta={[
+            { name: 'description', content: 'Description of Write Something' },
+          ]}
         />
 
         <PostHeading>
-          <PostTitle>{{ title }}</PostTitle>
-          <PostDate>{{curly true}}postInstances.get('{{ title }}').dates.map((date) => <span key={date}>{{curly true}}date.toDateString(){{curly}}</span>){{curly}}</PostDate>
+          <PostTitle>Write Something</PostTitle>
+          <PostDate>{postInstances.get('Write Something').dates.map((date) => <span key={date}>{date.toDateString()}</span>)}</PostDate>
         </PostHeading>
 
         <div className="post-body">
@@ -44,6 +44,6 @@ const {{ camelCase title }} = () => {
     );
 }
 
-{{ camelCase title }}.propTypes = {};
+writeSomething.propTypes = {};
 
-export default {{camelCase title}};
+export default writeSomething;
