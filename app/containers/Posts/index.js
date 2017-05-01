@@ -11,7 +11,10 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import makeSelectPosts from './selectors';
-import { makeSelectCurrentPost } from './selectors';
+import {
+  makeSelectCurrentPost,
+  makeSelectCurrentNormatives,
+} from './selectors';
 import { push } from 'react-router-redux';
 
 import { getPost } from './actions';
@@ -57,6 +60,7 @@ export class Posts extends React.Component {
 
 Posts.propTypes = {
   onClickPost: PropTypes.func.isRequired,
+  currentNormatives: PropTypes.array,
   children: PropTypes.node,
   // dispatch: PropTypes.func.isRequired,
 };

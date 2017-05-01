@@ -44,7 +44,6 @@ injectGlobal`
   .hot-take-alert {
     color: orange;
   }
+  
 
-`
-;
-
+`;

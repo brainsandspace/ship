@@ -35,11 +35,6 @@ class Tangent extends React.Component {
       straightLength: 300,
       id: shortid.generate(),
     };
-    console.log(
-      'these are the children',
-      this.props.children,
-      this.props.children[0].props
-    );
   }
 
   componentDidMount() {

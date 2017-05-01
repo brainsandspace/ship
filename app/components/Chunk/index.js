@@ -5,17 +5,18 @@
 */
 import shortid from 'shortid';
 import React from 'react';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
 import WordChoice from 'components/WordChoice';
 import Ellipsis from 'components/Ellipsis';
 import Tangent from 'components/Tangent';
+import Normative from 'containers/Normative';
 import Code from 'components/Code';
 
 function Chunk({ type, children, ...props }) {
   let Tag, href, src, alt;
-  console.log(children, type);
-  // TODO GET THIS OUTA HERE
+
   switch (type) {
     case 'wordChoice':
       Tag = WordChoice;
@@ -28,7 +29,12 @@ function Chunk({ type, children, ...props }) {
     case 'tangent':
       Tag = Tangent;
       break;
-    /** Custom Elements Above */
+
+    case 'normative':
+      Tag = Normative;
+      break;
+
+    /* 🔝 Custom Elements Above 🔝 */
 
     case 'heading':
       Tag = `h${props.depth}`;
@@ -46,6 +52,8 @@ function Chunk({ type, children, ...props }) {
       Tag = Code;
       break;
 
+    // 🔴 TODO what is delete
+    case 'delete':
     case 'strong':
       Tag = 'strong';
       break;
@@ -95,6 +103,8 @@ function Chunk({ type, children, ...props }) {
   );
 }
 
-Chunk.propTypes = {};
+Chunk.propTypes = {
+  type: PropTypes.string.isRequired,
+};
 
 export default Chunk;

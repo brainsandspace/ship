@@ -49,6 +49,7 @@ module.exports = {
     'max-len': 0,
     'no-trailing-spaces': 0,
     'comma-dangle': 0, // let prettier deal with that ish
+    'arrow-parens': 0,
   },
   settings: {
     'import/resolver': {

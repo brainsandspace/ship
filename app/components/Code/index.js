@@ -5,6 +5,7 @@
 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.pre`
@@ -36,7 +37,7 @@ function Code({ children, block = false }) {
 }
 
 Code.propTypes = {
-  block: React.PropTypes.bool,
+  block: PropTypes.bool,
 };
 
 export default Code;

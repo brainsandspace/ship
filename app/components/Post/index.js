@@ -5,11 +5,14 @@
 * Post
 *
 */
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 import socrates from 'utils/socrates';
 
-import Normatives from 'components/Normatives';
+import NormativesList from 'components/NormativesList';
 
 const Wrapper = styled.div`
 display: flex;
@@ -53,87 +56,46 @@ img {
 }
 
 .highlight {
-  background: khaki;
+  background: #fbfaa4;
 }
 `;
 
-class Post extends React.Component {
-  componentWillMount() {
-    this.setState({ text: '' });
-  }
+const mouseEnterNormative = id => {
+  document.querySelector(`#${id}`).className += ' highlight';
+};
 
-  componentDidMount() {
-    if (document.querySelector('.post-body')) {
-      const innerText = document.querySelector('.post-body').innerText;
+const mouseLeaveNormative = id => {
+  document.querySelector(`#${id}`).className = document
+    .querySelector(`#${id}`)
+    .className.replace(' highlight', '');
+};
 
-      this.setState({ text: innerText });
-
-      console.log('socrates', socrates(innerText));
-    }
-  }
-
-  mouseEnterNormative(evt) {
-    console.log(evt.target.innerText);
-    console.log(
-      document.querySelector('.post-body').innerText.match(evt.target.innerText)
-    );
-
-    console.log(this.props.children[2].props);
-    this.setState({
-      highlightedChildren: [
-        ...this.props.children[0],
-        this.props.children[1],
-        this.props.children[2],
-        replaceInside(this.props.children[2]),
-      ],
-    });
-
-    function replaceInside(child) {
-      if (Array.isArray(child)) {
-        return child.map(replaceInside);
-      } else if (child.props) {
-        if (Array.isArray(child.props.children)) {
-          return child.props.children.map(replaceInside);
-        } else if (typeof child.props.children === 'string') {
-          console.log(' my child', child.props.children);
-          return child.props.children.replace(
-            evt.target.innerText,
-            `<span class="highlight">${evt.target.innerText}</span>`
-          );
-        }
-      } else if (typeof child === 'string') {
-        console.log(' my child', child);
-        return child.replace(
-          evt.target.innerText,
-          `<span class="highlight">${evt.target.innerText}</span>`
-        );
-      }
-
-      return child;
-    }
-  }
-
+class Post extends Component {
   render() {
     return (
-      <Wrapper className="post">
-
-        <Normatives
-          onMouseEnter={evt => {
-            this.mouseEnterNormative(evt);
-          }}
-          text={this.state.text}
-        />
+      <Wrapper>
+        <NormativesList
+          onMouseEnter={mouseEnterNormative}
+          onMouseLeave={mouseLeaveNormative}
+        >
+          {this.props.normatives}
+        </NormativesList>
 
         <article className="post">
-          {this.state.highlightedChildren
+          {this.props.children}
+          {/*{this.state.highlightedChildren
             ? this.state.highlightedChildren
-            : this.props.children}
+            : this.props.children}*/}
         </article>
       </Wrapper>
     );
   }
 }
 
-Post.propTypes = { children: React.PropTypes.node };
+const mapStateToProps = state => ({
+  normatives: state.toJS().posts.normatives,
+});
 
-export default Post;
+Post.propTypes = { children: PropTypes.node, normatives: PropTypes.array };
+
+export default connect(mapStateToProps)(Post);
