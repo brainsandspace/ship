@@ -76,4 +76,9 @@ postInstances.set('Yet Another Test', {
   dates: [new Date(2017, 3, 26, 2, 3)],
 });
 
+postInstances.set('And Mumblin', {
+  slug: 'bumblin',
+  dates: [new Date(2017, 3, 30, 6, 15)],
+});
+
 export default postInstances;

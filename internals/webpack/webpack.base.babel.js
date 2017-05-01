@@ -15,7 +15,7 @@ module.exports = (options) => ({
     loaders: [
       {
         test: /\.whoah?$/,
-        loader: require.resolve('/media/david/DevDisk/dev/whoa-loader')
+        loader: require.resolve('/media/david/DevDisk/dev/whoa/whoa-loader')
       },
 
       {

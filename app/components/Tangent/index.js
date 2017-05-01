@@ -14,14 +14,16 @@ const Wrapper = styled.span`
   display: inline;
 
   svg {
-    width: 100%;
     position: absolute
     display: inline-block;
-    height: 300%;
-    overflow: scroll;
+    // z-index: -1;
 
     text {
       transform: translateY(1rem);
+
+      &:hover {
+        fill: red;
+      }
     }
   }
 `;
@@ -41,27 +43,46 @@ class Tangent extends React.Component {
   }
 
   componentDidMount() {
-    console.log('bounding rect', this.svg.getBoundingClientRect());
-
     // TODO this is hacky-ish, could instead use a ref that is passed down down down. Actually maybe this is better
-    console.log(document.querySelector('.post-body').getBoundingClientRect());
-
     const svgLeft = this.svg.getBoundingClientRect().left;
     const postBody = document
       .querySelector('.post-body')
       .getBoundingClientRect();
 
-    this.setState({
-      straightLength: postBody.width - (svgLeft - postBody.left),
-    });
-    this.forceUpdate();
+    // debugger;//
+    // this.setState({
+    //   straightLength: postBody.right - svgLeft - 100,
+    // });
+
+    // this part totally doesn't work. I am trying to not have overflow x
+    console.log(
+      'client bound ',
+      this.textPath,
+      this.textPath.getBoundingClientRect()
+    );
+    this.svg.setAttribute('width', this.textPath.getBoundingClientRect().width);
+    this.svg.setAttribute(
+      'height',
+      this.textPath.getBoundingClientRect().height
+    );
+    // debugger;
   }
 
   render() {
+    // debugger;
     return (
       <Wrapper>
-        <svg ref={ref => this.svg = ref}>
+        <svg
+          ref={ref => {
+            this.svg = ref;
+          }}
+        >
           <defs>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2 2" result="shadow" />
+              <feOffset dx="0" dy="0" />
+            </filter>
+
             <path
               id={this.state.id}
               d={
@@ -72,12 +93,24 @@ class Tangent extends React.Component {
               }
             />
           </defs>
+          {/*<text>
+            <textPath
+              href={`#${this.state.id}`}
+              style={{ filter: 'url(#shadow)', fill: 'white' }}
+            >
+              {this.props.children[0].props.value}
+            </textPath>
+          </text>*/}
           <text>
-            <textPath href={`#${this.state.id}`}>
+            <textPath
+              href={`#${this.state.id}`}
+              ref={ref => {
+                this.textPath = ref;
+              }}
+            >
               {this.props.children[0].props.value}
             </textPath>
           </text>
-          {/*<Chunk type={children[0].props.type}>{children[0].props.value}</Chunk>*/}
         </svg>
         <br />
         {' '}
