@@ -45,13 +45,13 @@ export class Posts extends React.Component {
             },
           ]}
         />
-        <PostList
+        {/*<PostList
           postInstances={postInstances}
           folded={this.props.children ? true : false}
           onClickPost={this.props.onClickPost}
         >
           {this.props}
-        </PostList>
+        </PostList>*/}
         {this.props.children}
       </Wrapper>
     );

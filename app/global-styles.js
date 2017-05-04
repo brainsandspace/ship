@@ -15,6 +15,7 @@ injectGlobal`
 
   body {
     font-family: /*Ubuntu,*/ 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100vh;
   }
 
   body.fontLoaded {
@@ -47,3 +48,8 @@ injectGlobal`
   
 
 `;
+
+// TODO theming
+export const colors = {
+  highlight: '#fbfaa4',
+};
