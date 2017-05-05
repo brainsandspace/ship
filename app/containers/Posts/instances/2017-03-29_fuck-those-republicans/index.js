@@ -13,7 +13,7 @@ import Revise from 'components/Revise';
 
 import blackPyramid from 'images/black-pyramid.svg';
 
-// import postInstances from '../postInstances';
+// import postInstances from '../../postInstances';
 const Wrapper = styled.div`
 width: 100%;
 color: white;

@@ -14,7 +14,7 @@ import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 export class Hrmph extends React.Component {
 

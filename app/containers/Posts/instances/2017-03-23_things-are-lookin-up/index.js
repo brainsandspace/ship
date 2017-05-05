@@ -15,7 +15,7 @@ import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 import PostSearch from 'components/PostSearch';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 export class WoopWoop extends React.Component {
   render() {

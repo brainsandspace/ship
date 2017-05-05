@@ -25,6 +25,8 @@ const wrap = (beforeContent = null, afterContent = null) => styled.span`
   &:hover {
     &::after, &::before {
       opacity: 1;
+      background: rgba(255,255,255, 0.5);
+      z-index: 1;
     }
   }
 

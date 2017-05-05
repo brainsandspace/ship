@@ -38,10 +38,6 @@ injectGlobal`
     margin-top: 0;
   }
 
-  code {
-    color: darkcyan;
-  }
-
   .hot-take-alert {
     color: orange;
   }
@@ -52,4 +48,6 @@ injectGlobal`
 // TODO theming
 export const colors = {
   highlight: '#fbfaa4',
+  text: '#111',
+  inlineBackground: '#f0f0f0',
 };

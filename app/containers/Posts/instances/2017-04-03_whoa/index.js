@@ -13,9 +13,9 @@ import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 import Chunk from 'components/Chunk';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
-import content from './2017-04-03_whoa.whoa';
+import content from './index.whoa';
 
 console.log(content);
 

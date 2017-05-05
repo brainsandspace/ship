@@ -29,7 +29,7 @@ import PostDate from 'components/PostDate';
 import Thought from 'components/Thought';
 import errorImage from 'images/error-image.png';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 
 export class BloggingCliTool extends React.Component {

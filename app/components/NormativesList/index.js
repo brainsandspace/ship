@@ -14,9 +14,7 @@ const UL = styled.ul`
 
   list-style: none;
   padding: 0;
-  min-width: 300px;
   
-
   li {
     overflow-x: hidden;
     padding: 10px 15px;
@@ -29,23 +27,7 @@ const UL = styled.ul`
     &:hover {
       background: ${colors.highlight};
     }
-  }
-
-  .normatives-button {
-    position: absolute;
-    font-size: 5rem;
-  }
-
-  .onscreen {
-    transform: translateX(calc(100vw - 48rem));
-    transition: transform 0.2s;
-  }
-
-  .offscreen {
-    transform: translateX(0rem);
-    transition: transform 0.2s;    
-  }
-  
+  }  
 `;
 
 const NormativesList = ({ onMouseEnter, onMouseLeave, children }) => {

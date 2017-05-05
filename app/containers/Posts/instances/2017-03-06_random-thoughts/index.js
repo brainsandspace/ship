@@ -8,7 +8,7 @@ import PostDate from "components/PostDate";
 
 import styled from "styled-components";
 
-import postInstances from '../postInstances.js';
+import postInstances from '../../postInstances.js';
 
 const StyledPost = styled.div`
 li {

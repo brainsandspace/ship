@@ -72,13 +72,13 @@ export default function createRoutes(store) {
             if (nextState.location.state) {
               importModules = Promise.all([
                 import(
-                  `containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}.js`,
+                  `containers/Posts/instances/${nextState.location.state}_${nextState.params.slug}/index.js`,
                 ),
               ]);
             } else {
               importModules = Promise.all([
                 import(
-                  `containers/Posts/instances/${nextState.params.slug}`,
+                  `containers/Posts/instances/${nextState.params.slug}/index.js`
                 ),
               ]);
             }

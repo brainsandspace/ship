@@ -1,6 +1,6 @@
 /*
  *
- * And Mumblin
+ * Write Something
  *
  */
 
@@ -13,25 +13,25 @@ import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 import Chunk from 'components/Chunk';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
-import content from './2017-04-30_bumblin.whoa';
+import content from './index.whoa';
 
-const andMumblin = () => { 
+const writeSomething = () => { 
     return (
 
       <Post>
 
         <Helmet
-          title="And Mumblin"
+          title="Write Something"
           meta={[
-            { name: 'description', content: 'Description of And Mumblin' },
+            { name: 'description', content: 'Description of Write Something' },
           ]}
         />
 
         <PostHeading>
-          <PostTitle>And Mumblin</PostTitle>
-          <PostDate>{postInstances.get('And Mumblin').dates.map((date) => <span key={date}>{date.toDateString()}</span>)}</PostDate>
+          <PostTitle>Write Something</PostTitle>
+          <PostDate>{postInstances.get('Write Something').dates.map((date) => <span key={date}>{date.toDateString()}</span>)}</PostDate>
         </PostHeading>
 
         <div className="post-body">
@@ -44,6 +44,6 @@ const andMumblin = () => {
     );
 }
 
-andMumblin.propTypes = {};
+writeSomething.propTypes = {};
 
-export default andMumblin;
+export default writeSomething;

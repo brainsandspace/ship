@@ -1,6 +1,6 @@
 /*
  *
- * {{ title }}
+ * Not Yet
  *
  */
 
@@ -17,21 +17,21 @@ import postInstances from '../../postInstances';
 
 import content from './index.whoa';
 
-const {{ camelCase title }} = () => { 
+const notYet = () => { 
     return (
 
       <Post>
 
         <Helmet
-          title="{{ titleCase title }}"
-          meta={{curly true}}[
-            {{curly true}} name: 'description', content: 'Description of {{ title }}' {{curly}},
-          ]{{curly}}
+          title="Not Yet"
+          meta={[
+            { name: 'description', content: 'Description of Not Yet' },
+          ]}
         />
 
         <PostHeading>
-          <PostTitle>{{ title }}</PostTitle>
-          <PostDate>{{curly true}}postInstances.get('{{ title }}').dates.map((date) => <span key={date}>{{curly true}}date.toDateString(){{curly}}</span>){{curly}}</PostDate>
+          <PostTitle>Not Yet</PostTitle>
+          <PostDate>{postInstances.get('Not Yet').dates.map((date) => <span key={date}>{date.toDateString()}</span>)}</PostDate>
         </PostHeading>
 
         <div className="post-body">
@@ -44,6 +44,6 @@ const {{ camelCase title }} = () => {
     );
 }
 
-{{ camelCase title }}.propTypes = {};
+notYet.propTypes = {};
 
-export default {{camelCase title}};
+export default notYet;

@@ -19,7 +19,7 @@ import Revise from 'components/Revise';
 import Marginals from 'containers/Marginals';
 
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 export class BrokenPipes extends React.Component {
   render() {

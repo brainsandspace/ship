@@ -52,7 +52,11 @@ function Chunk({ type, children, ...props }) {
       Tag = Code;
       break;
 
-    // 🔴 TODO what is delete
+    case 'inlineCode':
+      Tag = Code;
+      break;
+
+    //  TODO what is delete
     case 'delete':
     case 'strong':
       Tag = 'strong';
@@ -62,8 +66,8 @@ function Chunk({ type, children, ...props }) {
       Tag = 'em';
       break;
 
-    case 'linkReference':
     case 'link':
+    case 'linkReference':
       Tag = 'a';
       href = props.url;
       break;
@@ -79,7 +83,7 @@ function Chunk({ type, children, ...props }) {
       break;
 
     default:
-      debugger;
+      // debugger;
       Tag = 'span';
       break;
 

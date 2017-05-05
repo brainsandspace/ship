@@ -42,8 +42,14 @@ module.exports = {
       // generate {slug}.js
       {
         type: 'add',
-        path: `../../app/containers/Posts/instances/${datePrefix}_{{kebabCase slug}}.js`,
+        path: `../../app/containers/Posts/instances/${datePrefix}_{{kebabCase slug}}/index.js`,
         templateFile: './post/post.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: `../../app/containers/Posts/instances/${datePrefix}_{{kebabCase slug}}/index.whoa`,
+        templateFile: './post/post.whoa.hbs',
         abortOnFail: true,
       },
       {

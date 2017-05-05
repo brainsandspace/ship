@@ -6,7 +6,7 @@ import PostHeading from 'components/PostHeading';
 import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 
-import postInstances from '../postInstances.js';
+import postInstances from '../../postInstances.js';
 
 class TitleGoesHere extends React.Component {
   render() {

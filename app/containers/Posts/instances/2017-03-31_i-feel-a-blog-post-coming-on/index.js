@@ -15,7 +15,7 @@ import PostTitle from 'components/PostTitle';
 import PostDate from 'components/PostDate';
 import Revise from 'components/Revise';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 export class Now extends React.Component {
   render() {

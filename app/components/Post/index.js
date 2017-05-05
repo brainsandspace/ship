@@ -16,10 +16,12 @@ import socrates from 'utils/socrates';
 import NormativesList from 'components/NormativesList';
 
 const Wrapper = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
 height: 100vh;
+overflow: hidden;
+
+.grid {
+  display: grid;
+}
 
 .post {
   margin-left: 0;
@@ -39,6 +41,7 @@ height: 100vh;
 
 .post-body {
   width: 50rem;
+
 }
 
 i::before, i::after {
@@ -62,25 +65,22 @@ img {
 }
 
 .meta-column {
-  max-width: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
   background: #fafafa;
-  left: 0;
   border-right: 1px solid #b0b0b0;
   color: #555;
-  transition: flex 0.3s;
-  
 }
 
-.on-screen {
-  left: 0;
-  flex: 1;
+.meta-on-screen {
+  grid-template-columns: 300px 1fr;
 }
 
-.off-screen {
-  left: -300px;
-  flex: 0;
+.meta-off-screen {
+  grid-template-columns: 0 1fr;
+
+  .meta-column {
+    width: 0;
+    visibility: hidden;
+  }
 }
 
 header {
@@ -103,8 +103,10 @@ header button {
 `;
 
 const MainColumn = styled.section`
-overflow-y: auto;
-flex-grow: 1;
+// overflow-y: auto;
+      height: 100vh;
+  position: relative;
+  overflow: scroll;
 `;
 
 const mouseEnterNormative = id => {
@@ -126,46 +128,47 @@ const mouseLeaveNormative = id => {
 class Post extends Component {
   toggleMetaColumn(evt) {
     evt.preventDefault();
-    this.metaColumn.className = this.metaColumn.className.match('on-screen')
-      ? this.metaColumn.className.replace('on-', 'off-')
-      : this.metaColumn.className.replace('off-', 'on-');
+    this.gridDiv.className = this.gridDiv.className.match('on-screen')
+      ? this.gridDiv.className.replace('on-', 'off-')
+      : this.gridDiv.className.replace('off-', 'on-');
   }
 
   render() {
     return (
       <Wrapper>
-
-        <section
-          className="meta-column on-screen"
+        <div
+          className="grid meta-off-screen"
           ref={ref => {
-            this.metaColumn = ref;
+            this.gridDiv = ref;
           }}
         >
-          <NormativesList
-            onMouseEnter={mouseEnterNormative}
-            onMouseLeave={mouseLeaveNormative}
-          >
-            {this.props.normatives}
-          </NormativesList>
-        </section>
-
-        <MainColumn>
-          <header>
-            <button
-              onClick={evt => {
-                this.toggleMetaColumn(evt);
-              }}
+          <section className="meta-column on-screen">
+            <NormativesList
+              onMouseEnter={mouseEnterNormative}
+              onMouseLeave={mouseLeaveNormative}
             >
-              🗒
-            </button>
-          </header>
-          <article className="post">
-            {this.props.children}
-            {/*{this.state.highlightedChildren
+              {this.props.normatives}
+            </NormativesList>
+          </section>
+
+          <MainColumn>
+            <header>
+              <button
+                onClick={evt => {
+                  this.toggleMetaColumn(evt);
+                }}
+              >
+                🗒
+              </button>
+            </header>
+            <article className="post">
+              {this.props.children}
+              {/*{this.state.highlightedChildren
             ? this.state.highlightedChildren
             : this.props.children}*/}
-          </article>
-        </MainColumn>
+            </article>
+          </MainColumn>
+        </div>
       </Wrapper>
     );
   }

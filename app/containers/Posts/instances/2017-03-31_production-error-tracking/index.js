@@ -16,7 +16,7 @@ import PostDate from 'components/PostDate';
 import Revise from 'components/Revise';
 import Thought from 'components/Thought';
 
-import postInstances from '../postInstances';
+import postInstances from '../../postInstances';
 
 export class ABetterNightSSleep extends React.Component {
   render() {
