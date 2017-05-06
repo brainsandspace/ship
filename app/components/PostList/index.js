@@ -11,7 +11,7 @@ const articleMaxWidth = '50rem';
 
 const UL = styled.ul`
   
-  display: none;
+  // display: none;
   // display: flex;
   flex-direction: column;
   grid-template-columns: 1fr;

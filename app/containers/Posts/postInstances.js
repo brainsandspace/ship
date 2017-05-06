@@ -86,4 +86,9 @@ postInstances.set('Not Yet', {
   dates: [new Date(2017, 4, 4, 4, 51)],
 });
 
+postInstances.set('See Slug Slow', {
+  slug: 'i-am-too-drunk-to-be-trying-to-work',
+  dates: [new Date(2017, 4, 6, 5, 8)],
+});
+
 export default postInstances;

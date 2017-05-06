@@ -78,6 +78,14 @@ function Chunk({ type, children, ...props }) {
       alt = props.alt;
       break;
 
+    case 'list':
+      Tag = props.ordered ? 'ol' : 'ul';
+      break;
+
+    case 'listItem':
+      Tag = 'li';
+      break;
+
     case 'root':
       Tag = 'div';
       break;

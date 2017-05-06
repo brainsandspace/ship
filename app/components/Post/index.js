@@ -85,18 +85,28 @@ img {
 
 header {
   font-size: 3rem;
-}
 
-header button {
-  cursor: pointer;
-  transform: scale(1);
+  ul {
+    display:flex;
+    padding: 0;
+    list-style: none;
 
-  &:hover {
-    transform: scale(1.05)
+    li {
+      margin: 0px 20px;
+    }
   }
 
-  &:focus {
-    outline: 0;
+  button {
+    cursor: pointer;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.05)
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 }
 
@@ -153,19 +163,29 @@ class Post extends Component {
 
           <MainColumn>
             <header>
-              <button
-                onClick={evt => {
-                  this.toggleMetaColumn(evt);
-                }}
-              >
-                🗒
-              </button>
+              <ul>
+                <li>
+                  <button
+                    onClick={evt => {
+                      this.toggleMetaColumn(evt);
+                    }}
+                  >
+                    🗒
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={evt => {
+                      this.toggleMetaColumn(evt);
+                    }}
+                  >
+                    ⌛🤔
+                  </button>
+                </li>
+              </ul>
             </header>
             <article className="post">
               {this.props.children}
-              {/*{this.state.highlightedChildren
-            ? this.state.highlightedChildren
-            : this.props.children}*/}
             </article>
           </MainColumn>
         </div>
